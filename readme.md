@@ -35,15 +35,14 @@ celery -A orderManagement worker --concurrency=1 --loglevel=info
 ## Placing Order
 open simulator web page order.html in web browser\
 place order\
-![This is simulator web page.](/image/simulatorWebpage.png "simulator webpage.")
+![This is simulator web page.](/images/simulatorWebpage.png "simulator webpage.")
 **log files** will be generated in logs directory  located in project root directory
 
 
 **Note** Server can handle more than 3 order at a time 
 
 ## Images
-![This is simulator web page.](/image/simulatorWebpage.png "simulator webpage.")\
-![This is celerey screen.](/image/celery.png "celerey screen.")\
-![This is first log file.](/image/fisrtlog.png "first log file.")\
-![This is second log file](/image/secondlog.png "second log file.")\
+![This is celerey screen.](/images/celery.png "celerey screen.")\
+![This is first log file.](/images/fisrtlog.png "first log file.")\
+![This is second log file](/images/secondlog.png "second log file.")\
 
