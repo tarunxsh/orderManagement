@@ -179,4 +179,4 @@ def logDboyDetails():
 
 
 # RUN CMD
-# celery -A orderManagement worker --concurrency=1 --loglevel=info
+# celery -A orderManagement worker -B --concurrency=1 --loglevel=info
