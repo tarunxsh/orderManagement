@@ -36,8 +36,18 @@ pip install -r requirements.txt
 ```
 ## Run project
 
-Run project in one terminal
+### Run project in one terminal
 
+Migrate model
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+``` 
+Create superuser
+```
+python3 manage.py createsuperuser
+```
+Run server
 ```
 python3 manage.py runserver
 ```
@@ -45,7 +55,7 @@ python3 manage.py runserver
 Run celery in second terminal
 
 ```
-celery -A orderManagement worker --concurrency=1 --loglevel=info
+celery -A orderManagement worker -B --concurrency=1 --loglevel=info
 ```
 
 
@@ -56,7 +66,11 @@ place order\
 **log files** will be generated in logs directory  located in project root directory
 
 
-**Note** Server can't handle more than 3 order at a time 
+## Note
+***Server can't handle more than 3 order at a time\
+If placed more than 3 order receive them manualy from simulator page***\
+### WIP
+1. Dockerization
 
 ## Images
 ![This is celerey screen.](/images/celery.png "celerey screen.")\
