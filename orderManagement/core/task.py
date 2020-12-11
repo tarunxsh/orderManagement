@@ -70,6 +70,7 @@ def pickupOrder(orderID):
 	while(not currentOrder.isAssigned()):
 		time.sleep(10)
 		print("order-{} not assigned".format(orderID))
+		currentOrder = Order.objects.get(order_id=orderID)
 
 	timeTaken = currentOrder.timeTaken
 	currentOrder.order_st = 'PKD'
