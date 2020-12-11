@@ -43,6 +43,6 @@ place order\
 
 ## Images
 ![This is celerey screen.](/images/celery.png "celerey screen.")\
-![This is first log file.](/images/fisrtlog.png "first log file.")\
+![This is first log file.](/images/firstlog.png "first log file.")\
 ![This is second log file](/images/secondlog.png "second log file.")\
 
