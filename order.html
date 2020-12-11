@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simulator Page | Don't Reload</title>
+	<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.btn {
+  width:100px;
+  height: 30px;
+  background-color:   #F8F8F8;
+}
+</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+  <center>
+    <h1>Simulator Page</h1>
+    <p>Don't Reload</p>  
+  </center>
+  
+<table>
+  <tr>
+    <th>User</th>
+    <th>lattitude</th>
+    <th>longitude</th>
+    <th>amount</th>
+    <th>Order</th>
+ </tr>
+  <tr id="1">
+    <td>Rajiv</td>
+    <td>28.5989514</td>
+    <td>77.0516513</td>
+    <td>200</td>
+    <td><button class="btn" state="odr">neworder</button></td>
+  </tr>
+  <tr id="2">
+    <td>Pooja</td>
+    <td>28.5963233</td>
+    <td>77.0452676</td>
+    <td>124</td>
+    <td><button class="btn" state="odr">neworder</button></td>
+  </tr>
+  <tr id="3">
+    <td>Simran</td>
+    <td>28.5947972</td>
+    <td>77.0362554</td>
+    <td>343</td>
+    <td><button class="btn" state="odr">neworder</button></td>
+  </tr>
+  <tr id="4">
+    <td>Dhruv</td>
+    <td>28.6156326</td>
+    <td>77.0297967</td>
+    <td>552</td>
+    <td><button class="btn" state="odr">neworder</button></td>
+  </tr>
+  <tr id="5">
+    <td>Sammy</td>
+    <td>28.6046691</td>
+    <td>77.0315347</td>
+    <td>232</td>
+    <td><button class="btn" state="odr">neworder</button></td>
+  </tr>
+  <tr id="6">
+    <td>Rahul</td>
+    <td>28.5966247</td>
+    <td>77.0591508</td>
+    <td>551</td>
+    <td><button class="btn" state="odr">neworder</button></td>
+  </tr>
+  <tr id="7">
+    <td>Koko</td>
+    <td>28.5975384</td>
+    <td>77.0644401</td>
+    <td>232</td>
+    <td><button class="btn" state="odr">neworder</button></td>
+  </tr>
+  <tr id="8">
+    <td>Preeti</td>
+    <td>28.5682006</td>
+    <td>77.0680664</td>
+    <td>120</td>
+    <td><button class="btn" state="odr">neworder</button></td>
+  </tr>
+  <tr id="9">
+    <td>Payal</td>
+    <td>28.5714937</td>
+    <td>77.0722989</td>
+    <td>60</td>
+    <td><button class="btn" state="odr">neworder</button></td>
+  </tr>
+  <tr id="10">
+    <td>Baabul</td>
+    <td>28.5651052</td>
+    <td>77.0466785</td>
+    <td>220</td>
+    <td><button class="btn" state="odr">neworder</button></td>
+  </tr>
+  
+</table>
+
+
+
+
+<!-- ========================================================== -->
+<!-- JS SENDING POST REQUEST -->
+<script type="text/javascript">
+	var today = new Date();
+	var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+	const newOrderURL = "http://127.0.0.1:8000/neworder/";
+  const rcvOrderURL = "http://127.0.0.1:8000/dlvr/";
+	const data={
+		username : "tarunesh",
+	 	lattitude : 21.235123,
+		longitude : 72.342512,
+		amt:500,
+		time : `${time}`
+	}
+
+// Toggle btn function
+$('.btn').on('click',function(){
+  var pp = $(this).parent().parent();
+  var alltd = pp.children();
+  // console.log(alltd);
+  data.username  = alltd[0].innerText;
+  data.lattitude = alltd[1].innerText;
+  data.longitude = alltd[2].innerText;
+  data.amt       = alltd[3].innerText;
+  data.time      = time;
+  console.log(data);
+
+  if($(this).attr('state') == "odr") {
+    console.log("Order Placed");
+    $.post(newOrderURL,data,function(data,status){
+      console.log(`${data} and status is ${status}`)
+    });
+    $(this).attr('state', "rcv");
+    $(this).css('background-color', '#28a745');
+    $(this).html('Receive');
+  }
+
+  else {
+    console.log("Order Delivered");
+    $.post(rcvOrderURL,data,function(data,status){
+      console.log(`${data} and status is ${status}`)
+    });
+    $(this).attr('state', "odr");
+    $(this).css('background-color', ' #F8F8F8')
+      $(this).html('neworder');
+  }
+})
+
+
+</script>
+</body>
+</html>
