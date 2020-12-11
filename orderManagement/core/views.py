@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 import json
@@ -80,3 +81,5 @@ def delivered(request):
 
 
 
+def home(request):
+	return render(request,"order.html")

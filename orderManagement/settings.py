@@ -25,7 +25,7 @@ SECRET_KEY = 'qp1b4ii13(4)6h2di53rgqs&=9stif5wc%zy_*fto%(b0bf%1%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'django.contrib.gis',
     'orderManagement.core'
 ]
 
@@ -56,7 +55,7 @@ ROOT_URLCONF = 'orderManagement.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
