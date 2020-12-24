@@ -58,17 +58,23 @@ Run celery in second terminal
 celery -A orderManagement worker -B --concurrency=1 --loglevel=info
 ```
 
+## Populate Delivery boy database
+* Use superuser password to login to [admin](/admin) panel
+* Go to Dboys database
+* Add required no. Dboys (Name only) 
 
 ## Placing Order
-open simulator web page order.html in web browser\
-place order\
+* open [simulator](/) web page in web browser
+* place order
+
 ![This is simulator web page.](/images/simulatorWebpage.png "simulator webpage.")
 **log files** will be generated in logs directory  located in project root directory
 
 
 ## Note
-***Server can't handle more than 3 order at a time\
-If placed more than 3 order receive them manualy from simulator page***\
+1. ***Server can't handle order more than no. of Dboys availabe at a time***
+2. ***If placed more order than no. of Dboys, receive them manualy from simulator page***\
+
 ### WIP
 1. Dockerization
 
